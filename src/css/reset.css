@@ -3,13 +3,8 @@
 /******************************************************************************/
 
 @font-face {
-  font-family: "Source Sans 3";
-  src: url("../fonts/SourceSans3-Regular.ttf") format("ttf");
-}
-  
-@font-face {
-  font-family: "Roboto";
-  src: url("../fonts/Roboto-Regular.ttf") format("ttf");
+  font-family: "Merriweather";
+  src: url("../fonts/Merriweather-Regular.ttf") format("ttf");
 }
 
 *, *::before, *::after {
@@ -26,7 +21,7 @@ html, body {
 }
 
 body {
-  font-family: "Source Sans 3", "Roboto", sans-serif;
+  font-family: "Merriweather", serif;
 
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
