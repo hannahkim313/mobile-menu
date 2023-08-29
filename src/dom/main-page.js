@@ -19,7 +19,9 @@ const createHeader = () => {
   const menuIcon = document.createElement('img');
   menuIcon.src = menuImg;
   menuIcon.alt = 'Click to expand menu options';
-  menuIcon.className = 'menu';
+  const menuBtn = document.createElement('button');
+  menuBtn.className = 'menu';
+  menuBtn.appendChild(menuIcon);
 
   const heading = document.createElement('h1');
   heading.textContent = 'Acaer';
@@ -27,14 +29,16 @@ const createHeader = () => {
   const searchIcon = document.createElement('img');
   searchIcon.src = searchImg;
   searchIcon.alt = 'Click to search for something';
-  searchIcon.className = 'search';
+  const searchBtn = document.createElement('button');
+  searchBtn.className = 'search';
+  searchBtn.appendChild(searchIcon);
 
   const header = document.createElement('header');
   appendChildren(
     header,
-    menuIcon,
+    menuBtn,
     heading,
-    searchIcon,
+    searchBtn,
   );
 
   return header;
@@ -62,14 +66,23 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
   const chevronLeft = document.createElement('img');
   chevronLeft.src = chevronLeftImg;
   chevronLeft.alt = 'Click to go to previous image';
+  const chevronLeftBtn = document.createElement('button');
+  chevronLeftBtn.className = 'previous';
+  chevronLeftBtn.appendChild(chevronLeft);
   
-  const navButton = document.createElement('img');
-  navButton.src = circleImg;
-  navButton.alt = 'Click to select new photo of the model';
+  const navCircle = document.createElement('img');
+  navCircle.src = circleImg;
+  navCircle.alt = 'Click to select new photo of the model';
+  const navBtn = document.createElement('button');
+  navBtn.className = 'nav';
+  navBtn.appendChild(navCircle);
   
   const chevronRight = document.createElement('img');
   chevronRight.src = chevronRightImg;
   chevronRight.alt = 'Click to go to next image';
+  const chevronRightBtn = document.createElement('button');
+  chevronRightBtn.className = 'next';
+  chevronRightBtn.appendChild(chevronRight);
 
   const createMenuItems = (...items) => {
     const menuItems = [];
@@ -83,11 +96,11 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
   };
 
   const menuItems = createMenuItems(
-    chevronLeft,
-    navButton,
-    navButton.cloneNode(),
-    navButton.cloneNode(),
-    chevronRight,
+    chevronLeftBtn,
+    navBtn,
+    navBtn.cloneNode(true),
+    navBtn.cloneNode(true),
+    chevronRightBtn,
   );
   const sliderMenu = document.createElement('menu');
   appendChildren(
