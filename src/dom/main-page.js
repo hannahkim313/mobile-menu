@@ -50,6 +50,7 @@ const createSliderImgs = (...imgSources) => {
     const sliderImg = document.createElement('img');
     sliderImg.src = src;
     sliderImg.alt = 'Photo of a fashion model';
+    sliderImg.className = 'slider-img';
     sliderImgs.push(sliderImg);
   });
 
@@ -58,6 +59,7 @@ const createSliderImgs = (...imgSources) => {
 
 const createImageSlider = (sliderName, ...sliderImgs) => {
   const imageContainer = document.createElement('div');
+  imageContainer.className = 'image-container';
   appendChildren(
     imageContainer,
     ...sliderImgs,
@@ -103,6 +105,7 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
     chevronRightBtn,
   );
   const sliderMenu = document.createElement('menu');
+  sliderMenu.className = 'nav-container';
   appendChildren(
     sliderMenu,
     ...menuItems,
@@ -112,6 +115,7 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
   name.textContent = sliderName;
 
   const imageSlider = document.createElement('article');
+  imageSlider.className = 'image-slider';
   appendChildren(
     imageSlider,
     imageContainer,
