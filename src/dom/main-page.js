@@ -13,7 +13,7 @@ import slider3aImg from '../img/model-3a.jpg';
 import slider3bImg from '../img/model-3b.jpg';
 import slider3cImg from '../img/model-3c.jpg';
 import githubImg from '../img/github-mark.svg';
-import appendChildren from './helper-functions';
+import appendChildren from '../logic/helper-functions';
 
 const createHeader = () => {
   const menuIcon = document.createElement('img');
