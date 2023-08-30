@@ -21,16 +21,18 @@ const createHeader = () => {
   menuIcon.alt = 'Click to expand menu options';
   const menuBtn = document.createElement('button');
   menuBtn.className = 'menu';
+  menuBtn.setAttribute('type', 'button');
   menuBtn.appendChild(menuIcon);
 
   const heading = document.createElement('h1');
-  heading.textContent = 'Acaer';
+  heading.textContent = 'De Lune';
 
   const searchIcon = document.createElement('img');
   searchIcon.src = searchImg;
   searchIcon.alt = 'Click to search for something';
   const searchBtn = document.createElement('button');
   searchBtn.className = 'search';
+  searchBtn.setAttribute('type', 'button');
   searchBtn.appendChild(searchIcon);
 
   const header = document.createElement('header');
@@ -70,6 +72,7 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
   chevronLeft.alt = 'Click to go to previous image';
   const chevronLeftBtn = document.createElement('button');
   chevronLeftBtn.className = 'previous';
+  chevronLeftBtn.setAttribute('type', 'button');
   chevronLeftBtn.appendChild(chevronLeft);
   
   const navCircle = document.createElement('img');
@@ -77,13 +80,23 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
   navCircle.alt = 'Click to select new photo of the model';
   const navBtn = document.createElement('button');
   navBtn.className = 'nav';
+  navBtn.setAttribute('type', 'button');
   navBtn.appendChild(navCircle);
+  const navBtns = document.createElement('div');
+  navBtns.className = 'nav-container';
+  appendChildren(
+    navBtns,
+    navBtn,
+    navBtn.cloneNode(true),
+    navBtn.cloneNode(true),
+  );
   
   const chevronRight = document.createElement('img');
   chevronRight.src = chevronRightImg;
   chevronRight.alt = 'Click to go to next image';
   const chevronRightBtn = document.createElement('button');
   chevronRightBtn.className = 'next';
+  chevronRightBtn.setAttribute('type', 'button');
   chevronRightBtn.appendChild(chevronRight);
 
   const createMenuItems = (...items) => {
@@ -99,13 +112,11 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
 
   const menuItems = createMenuItems(
     chevronLeftBtn,
-    navBtn,
-    navBtn.cloneNode(true),
-    navBtn.cloneNode(true),
+    navBtns,
     chevronRightBtn,
   );
   const sliderMenu = document.createElement('menu');
-  sliderMenu.className = 'nav-container';
+  sliderMenu.className = 'slider-container';
   appendChildren(
     sliderMenu,
     ...menuItems,
@@ -128,11 +139,11 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
 
 const createMainContent = () => {
   const slider1Imgs = createSliderImgs(slider1aImg, slider1bImg, slider1cImg);
-  const imageSlider1 = createImageSlider('Alyssa', ...slider1Imgs);
+  const imageSlider1 = createImageSlider('Jamia Lawson', ...slider1Imgs);
   const slider2Imgs = createSliderImgs(slider2aImg, slider2bImg, slider2cImg);
-  const imageSlider2 = createImageSlider('Jackie', ...slider2Imgs);
+  const imageSlider2 = createImageSlider('Alyssa Owens', ...slider2Imgs);
   const slider3Imgs = createSliderImgs(slider3aImg, slider3bImg, slider3cImg);
-  const imageSlider3 = createImageSlider('Sam', ...slider3Imgs);
+  const imageSlider3 = createImageSlider('Sam Baker', ...slider3Imgs);
 
   const main = document.createElement('main');
   appendChildren(
