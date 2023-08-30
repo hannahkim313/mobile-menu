@@ -1,0 +1,198 @@
+/******************************************************************************/
+/* Selectors for general elements start here.
+/******************************************************************************/
+
+:root {
+  --color-text-1: #302928;
+  --color-text-1-inverted: #ffffff;
+
+  --color-brand-1: #f1f6f4;
+  --color-brand-2-a: #adb6ae;
+  --color-brand-2-b: #888b84;
+  --color-brand-3-a: #5e504e;
+  --color-brand-3-b: #887b6e;
+
+  --color-neutral-1: #eaeaea;
+  --color-neutral-2: #e3e3e3;
+}
+
+body {
+  color: var(--color-text-1);
+  
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+a {
+  text-decoration: none;
+
+  color: var(--color-text-1);
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/******************************************************************************/
+/* Selectors for the header start here.
+/******************************************************************************/
+
+header {
+  padding: 16px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  letter-spacing: 8px;
+}
+
+.menu,
+.search {
+  padding: 4px;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu:hover,
+.search:hover {
+  background-color: var(--color-neutral-1);
+}
+
+.menu:active,
+.search:active {
+  background-color: var(--color-neutral-2);
+}
+
+/******************************************************************************/
+/* Selectors for the main section start here.
+/******************************************************************************/
+
+main {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow-y: auto;
+}
+
+/******************************************************************************/
+/* Selectors for the image sliders start here.
+/******************************************************************************/
+
+.image-slider {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+.image-container {
+  width: 250px;
+  height: 250px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(1);
+}
+
+.image-container img:not(:first-child) {
+  display: none;
+}
+
+.slider-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.slider-container li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav img {
+  width: 1rem;
+}
+
+.next,
+.previous {
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.next:hover,
+.previous:hover {
+  background-color: var(--color-neutral-1);
+}
+
+.next:active,
+.previous:active {
+  background-color: var(--color-neutral-2);
+}
+
+.next img,
+.previous img {
+  width: 1.5rem;
+}
+
+/******************************************************************************/
+/* Selectors for the footer start here.
+/******************************************************************************/
+
+footer {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--color-brand-3-b);
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+footer img {
+  width: 1rem;
+}
+
+footer a {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
