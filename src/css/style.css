@@ -79,27 +79,50 @@ h1 {
 /* Selectors for the dropdown menu start here.
 /******************************************************************************/
 
-.dropdown-menu {
+.dropdown {
   width: 100%;
   height: 100%;
-  margin-left: -100%;
+  padding: 16px;
   background-color: var(--color-brand-3-a);
   grid-column: 1 / 2;
   grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-100%);
+  transition: all 0.8s ease;
   visibility: hidden;
 }
 
-.dropdown-menu ul {
+.dropdown.visible {
+  transform: translate(0);
+  visibility: visible;
+}
+
+.dropdown .close {
+  padding: 4px;
+  background-color: var(--color-brand-3-b);
+  border-radius: 50%;
+  align-self: flex-start;
+}
+
+.dropdown .close img {
+  width: 1.5rem;
+}
+
+.dropdown ul {
+  width: 100%;
   height: 100%;
   padding: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 48px;
 }
 
-.dropdown-menu ul a {
+.dropdown ul a {
   color: white;
   font-size: 1.2rem;
 }
