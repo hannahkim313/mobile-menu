@@ -1,4 +1,18 @@
+import closeImg from '../img/close.svg';
 import appendChildren from '../logic/helper-functions';
+
+const createCloseBtn = () => {
+  const closeIcon = document.createElement('img');
+  closeIcon.src = closeImg;
+  closeIcon.alt = 'Click to close the dropdown';
+
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'close';
+  closeBtn.setAttribute('type', 'button');
+  closeBtn.appendChild(closeIcon);
+
+  return closeBtn;
+};
 
 const sections = [
   'Home',
@@ -39,9 +53,10 @@ const createList = () => {
 
 const createDropdownMenu = () => {
   const dropdownMenu = document.createElement('nav');
-  dropdownMenu.className = 'dropdown-menu';
+  dropdownMenu.className = 'dropdown';
   appendChildren(
     dropdownMenu,
+    createCloseBtn(),
     createList(),
   );
 
