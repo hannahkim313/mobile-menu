@@ -8,8 +8,8 @@ const createMainPage = () => {
   const body = document.querySelector('body');
   appendChildren(
     body,
-    createHeader(),
     createDropdown(),
+    createHeader(),
     createMainContent(),
     createFooter(),
   );
