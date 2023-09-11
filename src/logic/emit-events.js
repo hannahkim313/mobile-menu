@@ -3,6 +3,8 @@ import emitDropdownEvents from './events/dropdown-events';
 import emitSliderEvents from './events/slider-events';
 
 const emitEvents = () => {
+  window.addEventListener('load', e => emitSliderEvents(e));
+
   const body = document.querySelector('body');
   body.addEventListener('click', e => {
     if (e.target.closest('header')) {

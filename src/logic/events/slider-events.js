@@ -50,7 +50,22 @@ const emitClickEvents = (e) => {
   };
 };
 
+const automateSliders = () => {
+  const sliders = document.querySelectorAll('.image-slider');
+  sliders.forEach(slider => {
+    setInterval(() => {
+      showNextImg(slider);
+      updateNavBtn(slider);
+    }, 5000);
+  });
+};
+
+const emitLoadEvents = () => {
+  automateSliders();
+};
+
 const events = {
+  load: emitLoadEvents,
   click: emitClickEvents,
 };
 
