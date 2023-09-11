@@ -45,10 +45,10 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
   const navBtn = document.createElement('button');
   navBtn.className = 'nav';
   navBtn.setAttribute('type', 'button');
-  const navBtns = document.createElement('div');
-  navBtns.className = 'nav-container';
+  const navContainer = document.createElement('div');
+  navContainer.className = 'nav-container';
   appendChildren(
-    navBtns,
+    navContainer,
     navBtn,
     navBtn.cloneNode(true),
     navBtn.cloneNode(true),
@@ -75,7 +75,7 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
 
   const menuItems = createMenuItems(
     chevronLeftBtn,
-    navBtns,
+    navContainer,
     chevronRightBtn,
   );
   const sliderMenu = document.createElement('menu');
