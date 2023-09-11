@@ -25,7 +25,6 @@ const createChevronLeftBtn = () => {
 
 const createNavContainer = () => {
   const numBtns = [1, 2, 3];
-
   const navBtns = numBtns.map(num => {
     const navBtn = document.createElement('button');
     navBtn.className = 'nav';
@@ -34,9 +33,7 @@ const createNavContainer = () => {
 
     return navBtn;
   });
-
   navBtns[0].classList.add('selected');
-
   const navContainer = document.createElement('div');
   navContainer.className = 'nav-container';
   appendChildren(
@@ -68,11 +65,11 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
   );
 
   const createMenuItems = (...items) => {
-    const menuItems = [];
-    items.forEach(item => {
+    const menuItems = items.map(item => {
       const list = document.createElement('li');
       list.appendChild(item);
-      menuItems.push(list);
+
+      return list;
     });
 
     return menuItems;
@@ -89,10 +86,8 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
     sliderMenu,
     ...menuItems,
   );
-
   const name = document.createElement('h2');
   name.textContent = sliderName;
-
   const imageSlider = document.createElement('article');
   imageSlider.className = 'image-slider';
   appendChildren(
@@ -106,18 +101,17 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
 };
 
 const createSliderImgs = (...imgSources) => {
-  const sliderImgs = [];
   let index = 1;
-  imgSources.forEach(src => {
+  const sliderImgs = imgSources.map(src => {
     const sliderImg = document.createElement('img');
     sliderImg.src = src;
     sliderImg.alt = 'Photo of a fashion model';
     sliderImg.className = 'slider-img';
     sliderImg.dataset.index = index;
     index += 1;
-    sliderImgs.push(sliderImg);
-  });
 
+    return sliderImg;
+  });
   sliderImgs[0].classList.add('active');
 
   return sliderImgs;
@@ -130,7 +124,6 @@ const createMainContent = () => {
   const imageSlider2 = createImageSlider('Alyssa Owens', ...slider2Imgs);
   const slider3Imgs = createSliderImgs(slider3aImg, slider3bImg, slider3cImg);
   const imageSlider3 = createImageSlider('Sam Baker', ...slider3Imgs);
-
   const main = document.createElement('main');
   appendChildren(
     main,

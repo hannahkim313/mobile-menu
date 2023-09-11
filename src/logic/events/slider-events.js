@@ -1,7 +1,6 @@
 const updateNavBtn = (slider) => {
   const currentActiveNavBtn = slider.querySelector('.selected');
   currentActiveNavBtn.classList.toggle('selected');
-  
   const activeImgIndex = slider.querySelector('.active').dataset.index;
   const newActiveNavBtn = slider.querySelector(`.nav[data-index='${activeImgIndex}']`);
   newActiveNavBtn.classList.toggle('selected');
@@ -18,7 +17,6 @@ const getPreviousImg = (activeImg) => {
 const showPreviousImg = (slider) => {
   const activeImg = slider.querySelector('.active');
   activeImg.classList.toggle('active');
-
   const previousImg = getPreviousImg(activeImg);
   previousImg.classList.toggle('active');
 };
@@ -34,7 +32,6 @@ const getNextImg = (activeImg) => {
 const showNextImg = (slider) => {
   const activeImg = slider.querySelector('.active');
   activeImg.classList.toggle('active');
-
   const nextImg = getNextImg(activeImg);
   nextImg.classList.toggle('active');
 };

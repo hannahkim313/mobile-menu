@@ -10,10 +10,8 @@ const createHeader = () => {
   menuBtn.className = 'menu';
   menuBtn.setAttribute('type', 'button');
   menuBtn.appendChild(menuIcon);
-
   const heading = document.createElement('h1');
   heading.textContent = 'De Lune';
-
   const searchIcon = document.createElement('img');
   searchIcon.src = searchImg;
   searchIcon.alt = 'Click to search for something';
@@ -21,7 +19,6 @@ const createHeader = () => {
   searchBtn.className = 'search';
   searchBtn.setAttribute('type', 'button');
   searchBtn.appendChild(searchIcon);
-
   const header = document.createElement('header');
   appendChildren(
     header,
