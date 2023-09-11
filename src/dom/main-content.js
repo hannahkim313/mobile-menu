@@ -11,19 +11,52 @@ import slider3bImg from '../img/model-3b.jpg';
 import slider3cImg from '../img/model-3c.jpg';
 import appendChildren from '../logic/helper-functions';
 
-const createSliderImgs = (...imgSources) => {
-  const sliderImgs = [];
-  imgSources.forEach(src => {
-    const sliderImg = document.createElement('img');
-    sliderImg.src = src;
-    sliderImg.alt = 'Photo of a fashion model';
-    sliderImg.className = 'slider-img';
-    sliderImgs.push(sliderImg);
+const createChevronLeftBtn = () => {
+  const chevronLeft = document.createElement('img');
+  chevronLeft.src = chevronLeftImg;
+  chevronLeft.alt = 'Click to go to previous image';
+  const chevronLeftBtn = document.createElement('button');
+  chevronLeftBtn.className = 'previous';
+  chevronLeftBtn.setAttribute('type', 'button');
+  chevronLeftBtn.appendChild(chevronLeft);
+
+  return chevronLeftBtn;
+};
+
+const createNavContainer = () => {
+  const numBtns = [1, 2, 3];
+
+  const navBtns = numBtns.map(num => {
+    const navBtn = document.createElement('button');
+    navBtn.className = 'nav';
+    navBtn.dataset.index = num;
+    navBtn.setAttribute('type', 'button');
+
+    return navBtn;
   });
 
-  sliderImgs[1].classList.add('active');
+  navBtns[0].classList.add('selected');
 
-  return sliderImgs;
+  const navContainer = document.createElement('div');
+  navContainer.className = 'nav-container';
+  appendChildren(
+    navContainer,
+    ...navBtns,
+  );
+
+  return navContainer;
+};
+
+const createChevronRightBtn = () => {
+  const chevronRight = document.createElement('img');
+  chevronRight.src = chevronRightImg;
+  chevronRight.alt = 'Click to go to next image';
+  const chevronRightBtn = document.createElement('button');
+  chevronRightBtn.className = 'next';
+  chevronRightBtn.setAttribute('type', 'button');
+  chevronRightBtn.appendChild(chevronRight);
+
+  return chevronRightBtn;
 };
 
 const createImageSlider = (sliderName, ...sliderImgs) => {
@@ -33,34 +66,6 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
     imageContainer,
     ...sliderImgs,
   );
-
-  const chevronLeft = document.createElement('img');
-  chevronLeft.src = chevronLeftImg;
-  chevronLeft.alt = 'Click to go to previous image';
-  const chevronLeftBtn = document.createElement('button');
-  chevronLeftBtn.className = 'previous';
-  chevronLeftBtn.setAttribute('type', 'button');
-  chevronLeftBtn.appendChild(chevronLeft);
-  
-  const navBtn = document.createElement('button');
-  navBtn.className = 'nav';
-  navBtn.setAttribute('type', 'button');
-  const navContainer = document.createElement('div');
-  navContainer.className = 'nav-container';
-  appendChildren(
-    navContainer,
-    navBtn,
-    navBtn.cloneNode(true),
-    navBtn.cloneNode(true),
-  );
-  
-  const chevronRight = document.createElement('img');
-  chevronRight.src = chevronRightImg;
-  chevronRight.alt = 'Click to go to next image';
-  const chevronRightBtn = document.createElement('button');
-  chevronRightBtn.className = 'next';
-  chevronRightBtn.setAttribute('type', 'button');
-  chevronRightBtn.appendChild(chevronRight);
 
   const createMenuItems = (...items) => {
     const menuItems = [];
@@ -74,9 +79,9 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
   };
 
   const menuItems = createMenuItems(
-    chevronLeftBtn,
-    navContainer,
-    chevronRightBtn,
+    createChevronLeftBtn(),
+    createNavContainer(),
+    createChevronRightBtn(),
   );
   const sliderMenu = document.createElement('menu');
   sliderMenu.className = 'slider-container';
@@ -98,6 +103,24 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
   );
   
   return imageSlider;  
+};
+
+const createSliderImgs = (...imgSources) => {
+  const sliderImgs = [];
+  let index = 1;
+  imgSources.forEach(src => {
+    const sliderImg = document.createElement('img');
+    sliderImg.src = src;
+    sliderImg.alt = 'Photo of a fashion model';
+    sliderImg.className = 'slider-img';
+    sliderImg.dataset.index = index;
+    index += 1;
+    sliderImgs.push(sliderImg);
+  });
+
+  sliderImgs[0].classList.add('active');
+
+  return sliderImgs;
 };
 
 const createMainContent = () => {
