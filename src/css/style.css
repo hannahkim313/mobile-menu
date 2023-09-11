@@ -173,6 +173,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .image-container img {
@@ -182,10 +183,14 @@ h2 {
   object-fit: cover;
   object-position: top;
   filter: grayscale(1);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  position: absolute;
   visibility: hidden;
 }
 
 .image-container img.active {
+  opacity: 1;
   visibility: visible;
 }
 
@@ -210,8 +215,16 @@ h2 {
   gap: 8px;
 }
 
-.nav img {
-  width: 1rem;
+.nav {
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid var(--color-brand-3-a);
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+
+.nav.selected {
+  background-color: var(--color-brand-3-a);
 }
 
 .next,

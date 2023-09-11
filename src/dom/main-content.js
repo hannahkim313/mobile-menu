@@ -1,5 +1,4 @@
 import chevronLeftImg from '../img/chevron-left.svg';
-import circleImg from '../img/circle.svg';
 import chevronRightImg from '../img/chevron-right.svg';
 import slider1aImg from '../img/model-1a.jpg';
 import slider1bImg from '../img/model-1b.jpg';
@@ -22,6 +21,8 @@ const createSliderImgs = (...imgSources) => {
     sliderImgs.push(sliderImg);
   });
 
+  sliderImgs[1].classList.add('active');
+
   return sliderImgs;
 };
 
@@ -41,13 +42,9 @@ const createImageSlider = (sliderName, ...sliderImgs) => {
   chevronLeftBtn.setAttribute('type', 'button');
   chevronLeftBtn.appendChild(chevronLeft);
   
-  const navCircle = document.createElement('img');
-  navCircle.src = circleImg;
-  navCircle.alt = 'Click to select new photo of the model';
   const navBtn = document.createElement('button');
   navBtn.className = 'nav';
   navBtn.setAttribute('type', 'button');
-  navBtn.appendChild(navCircle);
   const navBtns = document.createElement('div');
   navBtns.className = 'nav-container';
   appendChildren(
