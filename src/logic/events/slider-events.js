@@ -1,3 +1,14 @@
+const displaySelectedNavImg = (navBtn) => {
+  const slider = navBtn.closest('article');
+  const currentSelectedNavBtn = slider.querySelector('.selected');
+  currentSelectedNavBtn.classList.toggle('selected');
+  const currentActiveImg = slider.querySelector('.active');
+  currentActiveImg.classList.toggle('active');
+  const selectedNavImg = slider.querySelector(`.image-container [data-index='${navBtn.dataset.index}']`);
+  selectedNavImg.classList.toggle('active');
+  navBtn.classList.toggle('selected');
+};
+
 const updateNavBtn = (slider) => {
   const currentActiveNavBtn = slider.querySelector('.selected');
   currentActiveNavBtn.classList.toggle('selected');
@@ -47,6 +58,11 @@ const emitClickEvents = (e) => {
     const slider = e.target.closest('article');
     showPreviousImg(slider);
     updateNavBtn(slider);
+  };
+
+  if (e.target.closest('button') && e.target.closest('button').classList.contains('nav')) {
+    const navBtn = e.target.closest('button');
+    displaySelectedNavImg(navBtn);
   };
 };
 
